@@ -18,11 +18,12 @@ from .tcc import tcc_pos
 
 # ช่วยตัดพวกภาษาอังกฤษ เป็นต้น
 _PAT_ENG = re.compile(
-    r"""(?x)
+r"""(?x)
 [-a-zA-Z]+|   # english
 \d[\d,\.]*|   # number
 [ \t]+|       # space
-\r?\n         # newline
+\r?\n|         # newline
+[\(\)]
 """
 )
 
