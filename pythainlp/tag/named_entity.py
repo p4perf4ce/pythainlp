@@ -90,7 +90,7 @@ class ThaiNameTagger:
         )
 
     def get_ner(
-        self, text: str, pos: bool = True
+        self, text: str, pos: bool = True, token_engine=_WORD_TOKENIZER
     ) -> Union[List[Tuple[str, str]], List[Tuple[str, str, str]]]:
         """
         Get named-entities in text
@@ -117,7 +117,7 @@ class ThaiNameTagger:
             ('ทดสอบ', 'O'), ('ระบบ', 'O'), ('เวลา', 'O'), (' ', 'O'), ('14', 'B-TIME'),
             (':', 'I-TIME'), ('49', 'I-TIME'), (' ', 'I-TIME'), ('น.', 'I-TIME')]
         """
-        self.__tokens = word_tokenize(text, engine=_WORD_TOKENIZER)
+        self.__tokens = word_tokenize(text, engine=token_engine)
         self.__pos_tags = pos_tag(
             self.__tokens, engine="perceptron", corpus="orchid_ud"
         )
