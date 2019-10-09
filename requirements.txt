@@ -1,5 +1,5 @@
 dill
-marisa-trie==0.7.4
+marisa-trie==0.7.5
 nltk>=3.2.2
 pytz
 requests
